@@ -1,0 +1,25 @@
+resources:
+- ../../../base
+
+labels:
+- pairs:
+    app: httpd
+  includeTemplates: true
+  includeSelectors: true
+
+commonAnnotations:
+  dc: dc2
+  app: httpd
+
+images:
+- name: nginx
+  newName: httpd
+  newTag: "2.4"
+
+patches:
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: webserver
+  path: patches/deployment-volume-patch.yml

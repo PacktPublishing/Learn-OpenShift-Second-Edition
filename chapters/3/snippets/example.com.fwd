@@ -1,0 +1,38 @@
+$TTL 1h
+
+@       IN      SOA     dns01.example.com. hostmaster.example.com. (
+    2024050906 ; Serial
+    10000 ; Refresh
+    2400 ; Retry
+    604800 ; Expire value - slave will operate for 7 days after the master goes down
+    3600 ; Minimum TTL
+)
+
+$ORIGIN dz.broadcom.run.
+
+;; NS Records
+example.com.     3600    IN      NS      dns01.example.com.
+
+;; A Records
+dns01                          IN      A       10.192.102.19
+dns                            IN      CNAME   dns01
+dhcp                          IN      A       10.100.10.1
+
+rocky                            IN      A       10.192.101.11
+suse                          IN      A       10.192.102.10
+vcsa                          IN      A       10.192.101.16
+
+master-1.ocp4 IN A 10.100.10.11
+master-2.ocp4 IN A 10.100.10.12
+master-3.ocp4 IN A 10.100.10.13
+worker-1.ocp4 IN A 10.100.10.21
+worker-2.ocp4 IN A 10.100.10.22
+worker-3.ocp4 IN A 10.100.10.23
+infra-1.ocp4 IN A 10.100.10.31
+infra-2.ocp4 IN A 10.100.10.32
+infra-3.ocp4 IN A 10.100.10.33
+bootstrap.ocp4 IN A 10.100.10.3
+bastion.ocp4 IN A 10.100.10.2
+api-int.ocp4 IN A 10.100.10.4
+api.ocp4 IN A 10.100.10.5
+*.apps.ocp4 IN A 10.100.10.6

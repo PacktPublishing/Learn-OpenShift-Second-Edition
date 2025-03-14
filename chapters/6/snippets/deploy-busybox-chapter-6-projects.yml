@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-chapter-6-projects
+  name: test-chapter-6-projects
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-chapter-6-projects
+  template:
+    metadata:
+      labels:
+        app: test-chapter-6-projects
+    spec:
+      containers:
+      - image: busybox
+        name: busybox
+        command:
+        - "/bin/sh"
+        - "-c"
+        - "sleep 3600"
+        securityContext:
+          runAsUser: 1000700001
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        operator: Exists
+      securityContext:
+        supplementalGroups: [1000700001]
+        seLinuxOptions:
+          level: s0:c26,c25

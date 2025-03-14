@@ -1,0 +1,30 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  labels: 
+    app: test 
+  name: test 
+spec: 
+  replicas: 1 
+  selector: 
+    matchLabels: 
+      app: test 
+  template: 
+    metadata: 
+      labels: 
+        app: test 
+    spec: 
+      containers: 
+      - image: busybox 
+        name: busybox 
+        command: 
+        - "/bin/sh" 
+        - "-c" 
+        - "sleep 3600" 
+        resources: 
+          requests: 
+            cpu: 6 
+            memory: 16Gi 
+      tolerations: 
+      - key: node-role.kubernetes.io/infra 
+        operator: Exists 

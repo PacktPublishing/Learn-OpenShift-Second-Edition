@@ -1,0 +1,19 @@
+apiVersion: shipwright.io/v1beta1 
+kind: Build 
+metadata: 
+  name: buildah-golang-build 
+  namespace: my-awesome-project-01 
+spec: 
+  output: 
+    image: 'image-registry.openshift-image-registry.svc:5000/my-awesome-project-01/sample-go-app' 
+  paramValues: 
+    - name: dockerfile 
+      value: Dockerfile 
+  source: 
+    contextDir: docker-build 
+    git: 
+      url: 'https://github.com/shipwright-io/sample-go' 
+    type: Git 
+  strategy: 
+    kind: ClusterBuildStrategy 
+    name: buildah 

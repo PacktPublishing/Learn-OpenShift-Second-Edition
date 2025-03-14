@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: prometheus-demo-app
+  namespace: prometheus-demo-app
+spec:
+  groups:
+  - name: http_total_requests
+    rules:
+    - alert: TooManyHTTPRequests
+      expr: http_requests_total{code="200",method="get"} > 10
+      for: 1m
+      labels:
+        severity: warning
+      annotations:
+        message: Maximum number of HTTP requests exceeded

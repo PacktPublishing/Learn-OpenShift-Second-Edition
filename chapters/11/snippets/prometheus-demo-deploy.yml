@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-demo-app
+  namespace: prometheus-demo-app
+  labels:
+    app: prometheus-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-demo
+  template:
+    metadata:
+      labels:
+        app: prometheus-demo
+    spec:
+      containers:
+      - name: demo-app
+        image: ghcr.io/rhobs/prometheus-example-app:0.4.2
+        imagePullPolicy: IfNotPresent

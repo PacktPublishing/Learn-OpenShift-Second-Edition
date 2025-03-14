@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-out-of-range
+  name: test-out-of-range
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-out-of-range
+  template:
+    metadata:
+      labels:
+        app: test-out-of-range
+    spec:
+      containers:
+      - image: busybox
+        name: busybox
+        command:
+        - "/bin/sh"
+        - "-c"
+        - "sleep 3600"
+        securityContext:
+          runAsUser: 1000710001
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        operator: Exists
+      securityContext:
+        supplementalGroups: [1000710001]
+        seLinuxOptions:
+          level: s0:c26,c25

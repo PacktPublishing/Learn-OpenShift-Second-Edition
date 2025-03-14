@@ -1,0 +1,8 @@
+apiVersion: machineconfiguration.openshift.io/v1 
+kind: MachineConfig 
+metadata: 
+  labels: 
+    machineconfiguration.openshift.io/role: worker  
+  name: ncdu-epel-mc 
+spec: 
+  osImageURL: image-registry.openshift-image-registry.svc:5000/layering-test/ncdu-epel@sha256:c690ca48ed44122808614cae3410557ca2935ad012f1ba98ccc39dfe9b7cc73f 

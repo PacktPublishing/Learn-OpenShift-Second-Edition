@@ -1,0 +1,17 @@
+{
+  "ignition": {
+    "config": {
+      "merge": [
+        {
+          "source": "http://bastion.ocp4.example.com/bootstrap.ign",
+          "verification": {}
+        }
+      ]
+    },
+    "timeouts": {},
+    "version": "3.2.0"
+  },
+  "passwd": {},
+  "storage": {},
+  "systemd": {}
+}

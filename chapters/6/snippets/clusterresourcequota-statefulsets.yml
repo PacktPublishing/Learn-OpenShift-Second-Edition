@@ -1,0 +1,12 @@
+apiVersion: quota.openshift.io/v1
+kind: ClusterResourceQuota
+metadata:
+  name: chapter-6-cluster-quota-sts
+spec:
+  quota:
+    hard:
+      count/statefulsets.apps: 1
+  selector:
+    labels:
+      matchLabels:
+        no-sts: "true"

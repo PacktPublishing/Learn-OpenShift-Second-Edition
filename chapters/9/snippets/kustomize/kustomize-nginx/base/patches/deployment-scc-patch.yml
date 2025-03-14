@@ -1,0 +1,3 @@
+- op: add
+  path: /spec/template/metadata/annotations/openshift.io~1required-scc
+  value: anyuid

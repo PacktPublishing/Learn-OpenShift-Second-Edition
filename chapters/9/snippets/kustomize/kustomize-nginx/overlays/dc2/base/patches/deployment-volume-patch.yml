@@ -1,0 +1,3 @@
+- op: replace
+  path: /spec/template/spec/containers/0/volumeMounts/0/mountPath
+  value: /usr/local/apache2/htdocs

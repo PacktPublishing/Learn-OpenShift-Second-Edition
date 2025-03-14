@@ -1,0 +1,20 @@
+resources:
+- ../../base
+
+namePrefix: chapter-9-
+
+commonAnnotations:
+  env: dev
+
+replicas:
+- name: webserver
+  count: 1
+
+patches:
+- path: patches/deployment-requests-limits-patch.yml
+
+configMapGenerator:
+- name: webserver-index-page
+  files:
+  - files/index.html
+  behavior: replace

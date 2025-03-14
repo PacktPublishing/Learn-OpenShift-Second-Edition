@@ -1,0 +1,29 @@
+kind: BuildConfig 
+apiVersion: build.openshift.io/v1 
+metadata: 
+  name: ncdu-epel 
+  namespace: layering-test 
+spec: 
+  nodeSelector: null 
+  output: 
+    to: 
+      kind: ImageStreamTag 
+      name: 'ncdu-epel:latest' 
+  resources: {} 
+  successfulBuildsHistoryLimit: 5 
+  failedBuildsHistoryLimit: 5 
+  strategy: 
+    type: Docker 
+    dockerStrategy: 
+      from: 
+        kind: DockerImage 
+        name: 'quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c1ceb42f3e7f2d238fe59811776b24c14ffcef8ef792dc989ac62332fbbb8ccd' 
+  postCommit: {} 
+  source: 
+    type: Dockerfile 
+    dockerfile: |- 
+      FROM quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c1ceb42f3e7f2d238fe59811776b24c14ffcef8ef792dc989ac62332fbbb8ccd 
+      RUN rpm-ostree install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm && \ 
+          rpm-ostree install ncdu && \ 
+          ostree container commit 
+  runPolicy: Serial 

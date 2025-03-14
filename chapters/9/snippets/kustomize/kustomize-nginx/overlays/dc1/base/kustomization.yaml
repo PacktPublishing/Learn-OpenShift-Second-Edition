@@ -1,0 +1,11 @@
+resources:
+- ../../../base
+
+commonAnnotations:
+  dc: dc1
+  app: nginx
+
+images:
+- name: nginx
+  newName: nginx
+  newTag: alpine

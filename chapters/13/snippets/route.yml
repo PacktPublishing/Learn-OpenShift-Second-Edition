@@ -1,0 +1,16 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: win-route
+  namespace: windows-demo
+  labels:
+    app: win-webserver
+spec:
+  host: win-test.apps.CLUSTER_NAME.DOMAIN
+  to:
+    kind: Service
+    name: win-webserver
+    weight: 100
+  port:
+    targetPort: 80
+  wildcardPolicy: None

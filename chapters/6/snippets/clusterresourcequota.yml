@@ -1,0 +1,15 @@
+apiVersion: quota.openshift.io/v1
+kind: ClusterResourceQuota
+metadata:
+  name: chapter-6-cluster-quota
+spec:
+  quota:
+    hard:
+      count/deployments.apps: 1
+      pods: 1
+  selector:
+    labels:
+      matchLabels:
+        tier: minimal
+    annotations:
+      openshift.io/description: restricted-by-cluster-quota

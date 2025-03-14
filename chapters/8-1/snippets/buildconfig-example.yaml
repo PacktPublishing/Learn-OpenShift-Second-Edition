@@ -1,0 +1,61 @@
+apiVersion: v1
+items:
+- apiVersion: build.openshift.io/v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      description: Defines how to build the application
+      template.alpha.openshift.io/wait-for-ready: "true"
+    creationTimestamp: "2024-12-20T22:30:12Z"
+    generation: 2
+    labels:
+      app: httpd-example
+      app.openshift.io/runtime: apache
+      template: httpd-example
+    name: httpd-example
+    namespace: my-awesome-project-01
+    resourceVersion: "3841161"
+    uid: d2367068-2af8-441b-a7d9-9333c4a9b9ca
+  spec:
+    failedBuildsHistoryLimit: 5
+    nodeSelector: null
+    output:
+      to:
+        kind: ImageStreamTag
+        name: httpd-example:latest
+    postCommit: {}
+    resources: {}
+    runPolicy: Serial
+    source:
+      git:
+        uri: https://github.com/sclorg/httpd-ex.git
+      type: Git
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: httpd:2.4-el8
+          namespace: openshift
+      type: Source
+    successfulBuildsHistoryLimit: 5
+    triggers:
+    - imageChange: {}
+      type: ImageChange
+    - type: ConfigChange
+    - github:
+        secret: IaSNACcMVVyY7D7FBlmEgCYW74qfEf8Cv3Fe3KrS
+      type: GitHub
+    - generic:
+        secret: 4VBCfxLBmwa1pmI1cOn8VMDsFgcydDF87WH2OBb7
+      type: Generic
+  status:
+    imageChangeTriggers:
+    - from:
+        name: httpd:2.4-el8
+        namespace: openshift
+      lastTriggerTime: "2024-12-20T22:30:12Z"
+      lastTriggeredImageID: image-registry.openshift-image-registry.svc:5000/openshift/httpd@sha256:051c4c968e884712aadc62ec671083eb461df5944197b660ba910e397cc840e2
+    lastVersion: 1
+kind: List
+metadata:
+  resourceVersion: ""

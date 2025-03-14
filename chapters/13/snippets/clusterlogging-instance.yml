@@ -1,0 +1,32 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogging
+metadata:
+  name: instance 
+  namespace: openshift-logging 
+spec:
+  managementState: Managed
+  collection:
+    type: vector
+    tolerations: 
+    - key: node-role.kubernetes.io/infra 
+      effect: NoExecute 
+  logStore:
+    type: lokistack
+    lokistack:
+      name: logging-loki
+    retentionPolicy:
+      application:
+        maxAge: 1d
+      audit:
+        maxAge: 7d
+      infra:
+        maxAge: 7d
+  visualization:
+    type: ocp-console
+    ocpConsole:
+      logsLimit: 15
+    nodeSelector:
+      node-role.kubernetes.io/infra: ""
+    tolerations:
+    - key: node-role.kubernetes.io/infra
+      effect: NoExecute

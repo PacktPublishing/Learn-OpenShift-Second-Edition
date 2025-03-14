@@ -1,0 +1,26 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  labels: 
+    app: test 
+  name: test 
+spec: 
+  replicas: 1 
+  selector: 
+    matchLabels: 
+      app: test 
+  template: 
+    metadata: 
+      labels: 
+        app: test 
+      annotations: 
+        openshift.io/required-scc: chapter-6-scc 
+    spec: 
+      containers: 
+      - image: busybox 
+        name: busybox 
+        command: 
+        - "/bin/sh" 
+        - "-c"
+      securityContext: 
+        runAsUser: 1000720000 

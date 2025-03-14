@@ -1,0 +1,34 @@
+resources:
+- role.yml
+- deployment.yml
+- svc.yml
+- sa.yml
+- rolebinding.yml
+- ingress.yml
+
+configMapGenerator:
+- name: webserver-index-page
+  files:
+  - files/index.html
+
+labels:
+- pairs:
+    role: frontend
+    app: nginx
+  includeTemplates: true
+  includeSelectors: true
+
+namespace: chapter-9-kustomize
+
+patches:
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: nginx
+  path: patches/deployment-scc-patch.yml
+
+images:
+- name: nginx
+  newName: nginx
+  newTag: alpine

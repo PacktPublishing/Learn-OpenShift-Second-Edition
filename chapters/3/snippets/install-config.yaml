@@ -1,0 +1,41 @@
+apiVersion: v1
+baseDomain: example.com
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform: {}
+  replicas: 0
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform: {}
+  replicas: 3
+metadata:
+  name: ocp4
+platform:
+  vsphere:
+    failureDomains:
+    - name: US-NY-DC-CLUSTER
+      region: us-ny
+      server: 10.192.101.16
+      topology:
+        computeCluster: /DC/host/Cluster
+        datacenter: DC
+        datastore: /DC/datastore/10.192.19.12-local-disk
+        networks:
+        - pg-v3110-10.100.10.0%2f24
+        resourcePool: /DC/host/Cluster//Resources
+      zone: us-ny1
+    vcenters:
+    - datacenters:
+      - DC
+      password: PASSWORD
+      port: 443
+      server: 10.192.101.16
+      user: administrator@vsphere.local
+    diskType: thin
+pullSecret: 'PULL_SECRET'
+sshKey: |
+  PUBLIC_SSH_KEY

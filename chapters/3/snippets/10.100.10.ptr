@@ -1,0 +1,29 @@
+$TTL 1h
+
+@       IN      SOA     dns01.example.com. hostmaster.example.com. (
+    2024041111 ; Serial
+    10000 ; Refresh
+    2400 ; Retry
+    604800 ; Expire value - slave will operate for 7 days after the master goes down
+    3600 ; Minimum TTL
+)
+
+;; NS Records
+                IN      NS      dns01.example.com.
+                IN      NS      dns02.example.com.
+
+$ORIGIN 10.100.10.in-addr.arpa.
+
+11 IN PTR master-1.ocp4.example.com.
+12 IN PTR master-2.ocp4.example.com.
+13 IN PTR master-3.ocp4.example.com.
+21 IN PTR worker-1.ocp4.example.com.
+22 IN PTR worker-2.ocp4.example.com.
+23 IN PTR worker-3.ocp4.example.com.
+31 IN PTR infra-1.ocp4.example.com.
+32 IN PTR infra-2.ocp4.example.com.
+33 IN PTR infra-3.ocp4.example.com.
+3 IN PTR bootstrap.ocp4.example.com.
+2 IN PTR bastion.ocp4.example.com.
+4 IN PTR api-int.ocp4.example.com.
+5 IN PTR api.ocp4.example.com.

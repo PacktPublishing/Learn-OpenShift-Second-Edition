@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: example-pod 
+spec: 
+  affinity: 
+    podAntiaffinity: 
+      requiredDuringSchedulingIgnoredDuringExecution: 
+        labelSelector: 
+          matchLabels: 
+            app: frontend 
+        topologyKey: "kubernetes.io/hostname" 
