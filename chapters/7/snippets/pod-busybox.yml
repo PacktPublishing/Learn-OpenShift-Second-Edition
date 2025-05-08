@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+spec:
+  containers:
+    - name: busybox
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "sleep 1000000" ]
+      volumeMounts:
+      - name: ceph-volume
+        mountPath: "/mnt"
+  volumes:
+  - name: ceph-volume 
+    persistentVolumeClaim: 
+      claimName: ceph-pvc

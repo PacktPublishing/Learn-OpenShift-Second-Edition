@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpath-pod
+spec:
+  containers:
+    - name: hostpath-pod
+      image: quay.io/centos7/httpd-24-centos7:centos7
+      volumeMounts:
+        - name: hostpath-data
+          mountPath: /mnt
+      securityContext:
+        privileged: true
+  volumes:
+    - name: hostpath-data
+      persistentVolumeClaim:
+        claimName: hostpath-pvc

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+spec:
+  containers:
+    - name: busybox
+      image: quay.io/centos/centos:stream10-development
+      command: [ "/bin/sh", "-c", "sleep 1000000" ]
+      volumeDevices:
+        - name: data-volume
+          devicePath: /dev/rbd0
+  volumes:
+    - name: data-volume
+      persistentVolumeClaim:
+        claimName: ceph-rbd-pvc
