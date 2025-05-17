@@ -14,7 +14,7 @@ spec:
       labels: 
         app: test 
       annotations: 
-        openshift.io/required-scc: chapter-6-scc 
+        openshift.io/required-scc: chapter-7-scc 
     spec: 
       containers: 
       - image: busybox 

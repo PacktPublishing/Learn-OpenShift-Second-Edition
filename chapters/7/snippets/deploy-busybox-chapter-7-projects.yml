@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: test-chapter-6-projects
-  name: test-chapter-6-projects
+    app: test-chapter-7-projects
+  name: test-chapter-7-projects
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-chapter-6-projects
+      app: test-chapter-7-projects
   template:
     metadata:
       labels:
-        app: test-chapter-6-projects
+        app: test-chapter-7-projects
     spec:
       containers:
       - image: busybox
@@ -23,6 +23,13 @@ spec:
         - "sleep 3600"
         securityContext:
           runAsUser: 1000700001
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop:
+            - ALL
       tolerations:
       - key: node-role.kubernetes.io/infra
         operator: Exists

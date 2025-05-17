@@ -4,6 +4,7 @@ metadata:
   labels:
     app: test
   name: test
+  namespace: chapter-7-project-1
 spec:
   replicas: 1
   selector:
@@ -13,9 +14,11 @@ spec:
     metadata:
       labels:
         app: test
-      annotations:
-        openshift.io/required-scc: chapter-6-scc
     spec:
       containers:
-      - image: nginx
-        name: nginx
+      - image: busybox
+        name: busybox
+        command:
+        - "/bin/sh"
+        - "-c"
+        - "sleep 3600"

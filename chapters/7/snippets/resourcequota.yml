@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ResourceQuota
 metadata:
-  name: chapter-6-quota
+  name: chapter-7-quota
 spec:
   hard:
     configmaps: "10" 

@@ -1,7 +1,7 @@
 apiVersion: quota.openshift.io/v1
 kind: ClusterResourceQuota
 metadata:
-  name: chapter-6-cluster-quota
+  name: chapter-7-cluster-quota
 spec:
   quota:
     hard:
