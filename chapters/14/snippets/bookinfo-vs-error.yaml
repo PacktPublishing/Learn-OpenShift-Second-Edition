@@ -1,0 +1,36 @@
+apiVersion: networking.istio.io/v1beta1 
+kind: VirtualService 
+metadata: 
+  name: bookinfo 
+  namespace: bookinfo 
+spec: 
+  gateways: 
+  - bookinfo-gateway 
+  hosts: 
+  - ‘*’ 
+  http: 
+  - match: 
+    - uri: 
+        exact: /productpage 
+    - uri: 
+        prefix: /static 
+    - uri: 
+        exact: /login 
+    - uri: 
+        exact: /logout 
+    - uri: 
+        prefix: /api/v1/products 
+    fault: 
+      delay: 
+        percentage: 
+          value: 80 
+        fixedDelay: 5s 
+      abort: 
+        percentage: 
+          value: 50 
+        httpStatus: 500 
+    route: 
+    - destination: 
+        host: productpage 
+        port: 
+          number: 9080

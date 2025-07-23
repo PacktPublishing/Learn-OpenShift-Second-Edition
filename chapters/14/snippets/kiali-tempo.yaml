@@ -63,7 +63,8 @@ spec:
         type: basic
         use_kiali_token: false
         username: internal
-      enabled: false
+      query_timeout: 30
+      enabled: true
       in_cluster_url: "http://tempo-sample-query-frontend.tracing-system.svc.cluster.local:16685"
       namespace: istio-system
       service: ""
