@@ -1,9 +1,6 @@
 apiVersion: maistra.io/v2
 kind: ServiceMeshControlPlane
 metadata:
-  finalizers:
-  - maistra.io/istio-operator
-  generation: 1
   name: basic
   namespace: istio-system
 spec:

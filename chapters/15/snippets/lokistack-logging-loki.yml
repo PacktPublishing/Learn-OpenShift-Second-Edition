@@ -1,0 +1,74 @@
+apiVersion: loki.grafana.com/v1
+kind: LokiStack
+metadata:
+  name: logging-loki
+  namespace: openshift-logging
+spec:
+  size: 1x.demo
+  storage:
+    schemas:
+    - version: v12
+      effectiveDate: "2024-09-01"
+    secret:
+      name: logging-loki-s3 
+      type: s3 
+    tls:
+      caName: openshift-service-ca.crt
+      caKey: service-ca.crt
+  storageClassName: ocs-storagecluster-ceph-rbd
+  tenants:
+    mode: openshift-logging 
+  limits:
+    global:
+      ingestion:
+        ingestionBurstSize: 16
+        ingestionRate: 8
+  template:
+    compactor:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+      - effect: NoExecute
+        key: node-role.kubernetes.io/infra
+    distributor:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+      - effect: NoExecute
+        key: node-role.kubernetes.io/infra
+    indexGateway:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+      - effect: NoExecute
+        key: node-role.kubernetes.io/infra
+    ingester:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+      - effect: NoExecute
+        key: node-role.kubernetes.io/infra
+    querier:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+      - effect: NoExecute
+        key: node-role.kubernetes.io/infra
+    queryFrontend:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+      - effect: NoExecute
+        key: node-role.kubernetes.io/infra
+    ruler:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+      - effect: NoExecute
+        key: node-role.kubernetes.io/infra
+    gateway:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+      - effect: NoExecute
+        key: node-role.kubernetes.io/infra

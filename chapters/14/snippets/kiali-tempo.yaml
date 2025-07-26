@@ -1,20 +1,6 @@
 apiVersion: kiali.io/v1alpha1
 kind: Kiali
 metadata:
-  annotations:
-    maistra.io/mesh-generation: 2.6.5-1-2
-  finalizers:
-  - kiali.io/finalizer
-  labels:
-    app.kubernetes.io/component: kiali
-    app.kubernetes.io/instance: istio-system
-    app.kubernetes.io/managed-by: maistra-istio-operator
-    app.kubernetes.io/name: kiali
-    app.kubernetes.io/part-of: istio
-    app.kubernetes.io/version: 2.6.5-1-2
-    maistra-version: 2.5.8
-    maistra.io/owner: istio-system
-    maistra.io/owner-name: basic
   name: kiali
   namespace: istio-system
 spec:
