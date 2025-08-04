@@ -2,6 +2,7 @@ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   name: deny-all
+  namespace: chapter-7-netpol-1
 spec:
   podSelector: {}
   ingress: []

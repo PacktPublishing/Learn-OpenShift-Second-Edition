@@ -30,7 +30,7 @@ objects:
 - apiVersion: v1
   kind: LimitRange
   metadata:
-    name: chapter-6-limitrange
+    name: chapter-7-limitrange
     namespace: ${PROJECT_NAME}
   spec:
     limits:

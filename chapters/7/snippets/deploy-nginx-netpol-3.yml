@@ -4,6 +4,7 @@ metadata:
   labels:
     app: netpol-3
   name: netpol-3
+  namespace: chapter-7-netpol-3
 spec:
   replicas: 1
   selector:

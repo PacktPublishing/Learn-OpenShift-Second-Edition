@@ -46,5 +46,5 @@ spec:
             datacenter: <DATACENTER>
             datastore: /<DATACENTER>/datastore/<DATASTORE>
             folder: /<DATACENTER>/vm/<VM_FOLDER>
-            resourcepool: /<DATACENTER>/host/<CLUSTER>/<RESOURCE_POOL>
+            resourcepool: /<DATACENTER>/host/<CLUSTER>/Resources/<RESOURCE_POOL>
             server: <VSPHERE_HOSTNAME_OR_IP>

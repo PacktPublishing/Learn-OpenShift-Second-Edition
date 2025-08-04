@@ -2,6 +2,7 @@ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   name: allow-ns
+  namespace: chapter-7-netpol-3
 spec:
   podSelector: {}
   ingress:

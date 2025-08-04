@@ -4,6 +4,7 @@ metadata:
   labels:
     app: test-out-of-range
   name: test-out-of-range
+  namespace: chapter-7-project-1
 spec:
   replicas: 1
   selector:

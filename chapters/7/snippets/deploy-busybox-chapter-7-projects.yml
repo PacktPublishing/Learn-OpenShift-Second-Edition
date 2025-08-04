@@ -4,6 +4,7 @@ metadata:
   labels:
     app: test-chapter-7-projects
   name: test-chapter-7-projects
+  namespace: chapter-7-project-1
 spec:
   replicas: 1
   selector:

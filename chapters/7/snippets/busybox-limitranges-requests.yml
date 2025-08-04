@@ -4,6 +4,7 @@ metadata:
   labels: 
     app: test 
   name: test 
+  namespace: chapter-7-limits
 spec: 
   replicas: 1 
   selector: 
