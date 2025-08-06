@@ -2,6 +2,7 @@ apiVersion: shipwright.io/v1beta1
 kind: BuildRun 
 metadata: 
   name: buildah-golang-buildrun 
+  namespace: my-awesome-project-01
 spec: 
   build: 
     name: buildah-golang-build

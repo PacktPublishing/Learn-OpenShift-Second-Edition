@@ -2,7 +2,7 @@
 # https://github.com/GoogleCloudPlatform/golang-samples/blob/main/run/helloworld/Dockerfile 
 # Build 
 
-FROM docker.io/golang:1.17-buster as builder 
+FROM docker.io/golang:1.24.5-bookworm as builder 
 WORKDIR /app 
 COPY go.* ./ 
 RUN go mod download 
@@ -10,7 +10,7 @@ COPY . ./
 RUN go build -v -o server 
 
 # Create a "lean" container 
-FROM debian:buster-slim 
+FROM debian:bookworm-slim 
 
 RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \ 
     ca-certificates && \ 

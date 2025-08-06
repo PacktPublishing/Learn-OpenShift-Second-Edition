@@ -4,9 +4,9 @@ metadata:
   name: example-pod 
 spec: 
   affinity: 
-    podAntiaffinity: 
+    podAffinity: 
       requiredDuringSchedulingIgnoredDuringExecution: 
-        labelSelector: 
+      - labelSelector: 
           matchLabels: 
             app: frontend 
         topologyKey: "kubernetes.io/hostname" 
