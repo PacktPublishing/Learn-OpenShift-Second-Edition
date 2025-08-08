@@ -9,4 +9,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: webserver
-  namespace: chapter-9-kustomize
+  namespace: chapter-11-kustomize

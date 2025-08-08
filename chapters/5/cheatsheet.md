@@ -45,3 +45,7 @@ Get Rolebingings and Users, Groups, and Service Accounts for them:
 Check who can do specific actions, for example: 
 
 `oc adm policy who-can <verb> <resource> [-n <namespace>]`
+
+Remove kubeadmin user: 
+
+oc delete secret kubeadmin –n kube-system 

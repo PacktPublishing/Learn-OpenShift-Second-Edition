@@ -18,7 +18,7 @@ labels:
   includeTemplates: true
   includeSelectors: true
 
-namespace: chapter-9-kustomize
+namespace: chapter-11-kustomize
 
 patches:
 - target:

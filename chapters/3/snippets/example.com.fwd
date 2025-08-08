@@ -8,7 +8,7 @@ $TTL 1h
     3600 ; Minimum TTL
 )
 
-$ORIGIN dz.broadcom.run.
+$ORIGIN example.com.
 
 ;; NS Records
 example.com.     3600    IN      NS      dns01.example.com.

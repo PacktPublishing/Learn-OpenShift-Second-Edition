@@ -1,7 +1,7 @@
 resources:
 - ../../base
 
-namePrefix: chapter-9-
+namePrefix: chapter-11-
 
 commonAnnotations:
   env: dev
