@@ -15,6 +15,7 @@ spec:
   replicas: 3
   managementState: Managed
   storage:
+    emptyDir: null
     pvc:
       claim: image-registry
   nodeSelector:

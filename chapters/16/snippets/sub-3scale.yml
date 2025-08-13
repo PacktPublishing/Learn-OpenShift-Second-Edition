@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-3scale-operator 
 spec: 
   channel: threescale-2.15 
-  startingCSV: 3scale-operator.v0.12.0 
+  startingCSV: 3scale-operator.v0.12.3
   namespace: openshift-3scale-operator 
   sourceNamespace: openshift-marketplace 
   name: 3scale-operator 

@@ -7,7 +7,12 @@ metadata:
   name: grafana-demo
   namespace: openshift-operators
 spec:
-  route: grafana-demo.apps.CLUSTER_NAME.DOMAIN
+  route:
+    spec:
+      host: grafana-demo.apps.CLUSTER_NAME.DOMAIN
+      to:
+        kind: Service
+        name: grafana-demo-service
   config:
     auth:
       disable_login_form: "false"
